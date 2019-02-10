@@ -262,3 +262,65 @@ $ npm install ajv@6.8.1
 
 npm run serveを実行してからブラウザを開くと、vue-cliのページが表示される。
 
+# Bulmaのセットアップ
+
+見た目を調整するためにCSSフレームワークのBulmaを使う。
+
+<https://bulma.io/>
+
+## Bulmaのインストール
+
+プロジェクト内にnpmでインストール。
+
+```bash
+npm install -D bulma
+```
+
+実行例。
+
+```bash
+iida-macbook-pro:hello-world iida$ npm install -D bulma
++ bulma@0.7.4
+added 1 package from 1 contributor and audited 25948 packages in 8.238s
+found 0 vulnerabilities
+```
+
+インストールされた場所はここ。
+
+```text
+./node_modules/bulma/bulma.sass
+```
+
+## bulma.scssの新規作成
+
+プロジェクト内にbulma.scssを新規に作成する。
+場所はどこでもよい。./src/assets/bulma.scssでもよいし、./bulma.scssでもいい。
+
+中身は1行のみ。
+
+```scss
+/* ~記号はnode_modules/を意味する  */
+@import '~bulma/bulma'
+```
+
+## main.jsから呼び出す
+
+作成したbulma.scssファイルをsrc/main.jsから呼び出す。
+
+```js
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
+
+// CSSフレームワークBulmaを利用
+require("./bulma.scss");
+
+Vue.config.productionTip = false;
+
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount("#app");
+```
