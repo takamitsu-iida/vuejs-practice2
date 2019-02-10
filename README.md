@@ -324,3 +324,33 @@ new Vue({
   render: h => h(App)
 }).$mount("#app");
 ```
+
+## public/index.html
+
+langをjaにした程度。
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+
+    <title>hello-world</title>
+
+  </head>
+
+  <body>
+
+    <noscript>
+      <strong>We're sorry but hello-world doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+
+    <div id="app"></div>
+
+  </body>
+</html>
+```
