@@ -2,7 +2,8 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        // ~ means node_modules
+        // @/ is an alias to src/
+        // ~ is an alias to node_modules/
         data: `@import "~bulma/bulma.sass";`
       }
     }
