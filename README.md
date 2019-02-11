@@ -391,3 +391,45 @@ langをjaにする程度で、そのまま流用可能。
   </body>
 </html>
 ```
+
+# font awesomeの取り込み
+
+font-awesomeはCSSなのでindex.htmlで読み込んでしまえば手っ取り早い。
+
+```html
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+```
+
+公式サイトでvue.js用にvue-fontawesomeパッケージが公開されているけど、これは使わない。
+フリー版の最新をnpmでインストールする。
+
+```bash
+npm install --save @fortawesome/fontawesome-free
+```
+
+CSSファイルは./node_modules/@fortawesome/fontawesome-free/cssにインストールされる。
+使いたいのはall.cssなので、これを取り込む。
+
+```text
+iida-macbook-pro:hello-world iida$ ls -l node_modules/@fortawesome/fontawesome-free/css
+total 712
+-rw-r--r--  1 iida  staff  68243 10 26  1985 all.css
+-rw-r--r--  1 iida  staff  54456 10 26  1985 all.min.css
+-rw-r--r--  1 iida  staff    528 10 26  1985 brands.css
+-rw-r--r--  1 iida  staff    475 10 26  1985 brands.min.css
+-rw-r--r--  1 iida  staff  66628 10 26  1985 fontawesome.css
+-rw-r--r--  1 iida  staff  53029 10 26  1985 fontawesome.min.css
+-rw-r--r--  1 iida  staff    547 10 26  1985 regular.css
+-rw-r--r--  1 iida  staff    490 10 26  1985 regular.min.css
+-rw-r--r--  1 iida  staff    540 10 26  1985 solid.css
+-rw-r--r--  1 iida  staff    482 10 26  1985 solid.min.css
+-rw-r--r--  1 iida  staff   7270 10 26  1985 svg-with-js.css
+-rw-r--r--  1 iida  staff   4688 10 26  1985 svg-with-js.min.css
+-rw-r--r--  1 iida  staff  41032 10 26  1985 v4-shims.css
+-rw-r--r--  1 iida  staff  26440 10 26  1985 v4-shims.min.css
+```
+
+どのみちBulmaを使うための設定でvue.config.jsを作っているので、CSSローダーに追加で読み込ませる。
+
+
+
