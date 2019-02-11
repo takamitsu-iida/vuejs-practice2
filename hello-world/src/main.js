@@ -4,7 +4,8 @@ import router from "./router";
 import store from "./store";
 
 // CSSフレームワークBulmaを利用
-require("./bulma.scss");
+// require("./bulma.scss");
+// import "./bulma.scss";
 
 Vue.config.productionTip = false;
 

@@ -285,27 +285,41 @@ added 1 package from 1 contributor and audited 25948 packages in 8.238s
 found 0 vulnerabilities
 ```
 
-インストールされた場所はここ。
+インストールされた場所はnode_modules/bulma/の下。
 
 ```text
-./node_modules/bulma/bulma.sass
+.
+├── bulma.sass
+├── css
+│   ├── bulma.css
+│   ├── bulma.css.map
+│   └── bulma.min.css
+├── package.json
 ```
+
+## bulmaの使い方
+
+ここを参照。
+
+<https://www.reddit.com/r/vuejs/comments/5q932p/setting_up_vuejs_with_bulma/>
+
+CSSファイルが見えているのでhtmlファイルで取り込んでもいいけど、
+せっかくwebpackで固めて使うのでbulma.sassを使うのが良さそう。
 
 ## bulma.scssの新規作成
 
-プロジェクト内にbulma.scssを新規に作成する。
-場所はどこでもよい。./src/assets/bulma.scssでもよいし、./bulma.scssでもいい。
-
+プロジェクト内に./src/bulma.scssを新規に作成する。
 中身は1行のみ。
 
 ```scss
 /* ~記号はnode_modules/を意味する  */
-@import '~bulma/bulma'
+@import '~bulma/bulma.sass'
 ```
 
-## main.jsから呼び出す
+## main.jsからbulma.scssを呼び出す
 
 作成したbulma.scssファイルをsrc/main.jsから呼び出す。
+呼び出しはrequireでもimportでもどちらでもよい。
 
 ```js
 import Vue from "vue";
@@ -314,7 +328,8 @@ import router from "./router";
 import store from "./store";
 
 // CSSフレームワークBulmaを利用
-require("./bulma.scss");
+// require("./bulma.scss");
+import "./bulma.scss";
 
 Vue.config.productionTip = false;
 
@@ -323,6 +338,25 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount("#app");
+```
+
+## vue.config.jsで指定する方法
+
+ローダーオプションとして指定するのも簡単でいい。
+vue.config.jsは作成されていないので、新規で作成する。
+
+これをやっておけば、どこでもbulmaのCSSを利用できる。
+
+```js
+module.exports = {
+  css: {
+    loaderOptions: {
+      sass: {
+        data: `@import "~bulma/bulma.sass";`
+      }
+    }
+  }
+};
 ```
 
 ## public/index.html
