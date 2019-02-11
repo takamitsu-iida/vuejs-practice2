@@ -37,8 +37,7 @@
 
           <!-- 右側 -->
           <div class="column is-8">
-
-
+            <table-sample></table-sample>
           </div>
         </div>
 
@@ -47,30 +46,26 @@
   </div>
 </template>
 
+<script>
+
+// 使いたいコンポーネントをインポートする
+// @ is an alias to /src
+import TableSample from "@/components/TableSample.vue";
+
+export default {
+  name: "BulmaTest",
+  components: {
+    TableSample
+  }
+};
+
+</script>
+
 <style scoped>
 .columns {
   width: 100%;
   height: 100%;
   margin-left: 0;
-}
-.menu-label {
-  color: #8F99A3;
-  letter-spacing: 1.3;
-  font-weight: 700;
-}
-.menu-list a {
-  color: #0F1D38;
-  font-size: 14px;
-  font-weight: 700;
-}
-.menu-list a:hover {
-  background-color: transparent;
-  color: #276cda;
-}
-.menu-list a.is-active {
-  background-color: transparent;
-  color: #276cda;
-  font-weight: 700;
 }
 .card {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);

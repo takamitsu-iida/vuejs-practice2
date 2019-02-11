@@ -5,18 +5,18 @@ import store from "./store";
 
 // CSSフレームワークBulmaを利用
 // vue.config.jsでローダー指定しない場合は、ここで指定する
-// require("./bulma.scss");
 // import "./bulma.scss";
 
 // font-awesomeの使いたいCSSをimportで取り込む
+// vue.config.jsでローダー指定しない場合は、ここで指定する
 // import "@fortawesome/fontawesome-free/css/all.css";
+
+import { ClientTable } from "vue-tables-2";
+Vue.use(ClientTable);
 
 Vue.config.productionTip = false;
 
 new Vue({
-  data: {
-    showNav: false
-  },
   router,
   store,
   render: h => h(App)

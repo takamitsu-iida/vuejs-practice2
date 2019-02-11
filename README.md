@@ -1,6 +1,8 @@
 # vue-cliを利用したセットアップ手順
 
-vue-cliを使うとwebpack関連も一緒にインストールしてくれて大変便利。
+vue-cliを使うと依存関係にあるものを一緒にインストールしてくれて大変便利。
+しかもwebpackの設定をしなくてすむ。
+
 開発スピードが早いので、本やインターネットの情報は古いことが多い。
 必ず本家サイトに目を通して実行すること。
 
@@ -8,7 +10,7 @@ vue-cliを使うとwebpack関連も一緒にインストールしてくれて大
 
 ## Node.js
 
-Node.js 8.9以降が必要。
+2019年2月時点ではNode.js 8.9以降が必要。
 
 ```text
 iida-macbook-pro:vuejs-practice2 iida$ node --version
@@ -17,7 +19,7 @@ v8.15.0
 
 ## vue-cliのインストール
 
-グローバル環境にインストールする。
+vue-cliはグローバル環境にインストールする。
 
 ```bash
 npm install -g @vue/cli
@@ -32,6 +34,8 @@ iida-macbook-pro:vuejs-practice2 iida$ vue --version
 
 ## いつもの.gitignore
 
+別途必要になるので準備しておく。
+
 使っているのはgiboで生成したものに若干の手を加えたもの。
 
 ```bash
@@ -39,6 +43,8 @@ iida-macbook-pro:vuejs-practice2 iida$ vue --version
 ```
 
 ## いつもの.eslintrc.js
+
+別途必要になるので準備しておく。
 
 eslintがインストールされてなければインストールする。
 
@@ -91,20 +97,21 @@ module.exports = {
 };
 ```
 
-## プロジェクトの作成
+## vueプロジェクトの作成
 
-事前に決めておくこと。
+これらは事前に決めておくこと。
 
 - プロジェクト名
 - 使うフィーチャ
 
 フィーチャとして使うのはBabel, Router, Vuex, CSS, Linterくらい。
+最初のうちは、RouterとVuexはいらないかも。
 
 ```bash
-vue create my-project
+vue create <プロジェクト名>
 ```
 
-これを実行することでmy-projectディレクトリが新規で作られる。
+これを実行することで<プロジェクト名>のディレクトリが新規で作られる。
 
 作るものが明確ならvue createでディレクトリを作成して、それを育てていくのがいい。
 ただ、最初のうちはトライ＆エラーでいくつもプロジェクトを作ることも想定するので、
@@ -273,13 +280,13 @@ npm run serveを実行してからブラウザを開くと、vue-cliのページ
 プロジェクト内にnpmでインストール。
 
 ```bash
-npm install -D bulma
+npm install --save bulma
 ```
 
 実行例。
 
 ```bash
-iida-macbook-pro:hello-world iida$ npm install -D bulma
+iida-macbook-pro:hello-world iida$ npm install --save bulma
 + bulma@0.7.4
 added 1 package from 1 contributor and audited 25948 packages in 8.238s
 found 0 vulnerabilities
@@ -305,12 +312,12 @@ found 0 vulnerabilities
 
 <https://stackoverflow.com/questions/41966491/css-frameworks-in-vue-js>
 
-CSSファイルが見えているのでhtmlファイルで取り込んでもいいけど、
-せっかくwebpackで固めて使うのでbulma.sassを使い、ローダーで固めるのが良さそう。
+CSSファイルが見えているのでindex.htmlファイルで取り込んでもいいけど、
+せっかくwebpackで固めて使うのでローダーで固めるのが良さそう。
 
 ## 個別に指定する場合
 
-プロジェクト内に./src/bulma.scssを新規に作成する。
+プロジェクト内に./src/variables.scssを新規に作成する。
 中身は1行のみ。
 
 ```scss
@@ -343,19 +350,20 @@ new Vue({
 
 ## vue.config.jsで指定する方法
 
-ローダーオプションとして指定するのも簡単でいい。
+ローダーオプションとして指定する方が簡単でいい。
 vue-cliではvue.config.jsを自動作成してくれないので新規で作成する。
 
 これをやっておけば、どこでもbulmaのCSSを利用できる。
 
 ~記号はnode_modules/を指している。
+@記号は./srcを指している
 
 ```js
 module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        data: `@import "~bulma/bulma.sass";`
+        data: `@import "@/variables.scss";`
       }
     }
   }
@@ -431,5 +439,27 @@ total 712
 
 どのみちBulmaを使うための設定でvue.config.jsを作っているので、CSSローダーに追加で読み込ませる。
 
+./src/variables.scssに以下のように追記する。
 
+```scss
+/* ~記号はnode_modules/を意味する  */
+@import '~bulma/bulma.sass';
 
+/* font-awesome */
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+```
+
+# vue-tables-2のインストール
+
+vue-table-2はテーブルを表示するコンポーネント。
+検索やソートがクライアント側でできる。
+
+<https://github.com/matfish2/vue-tables-2>
+
+```bash
+npm install --save vue-tables-2
+```
