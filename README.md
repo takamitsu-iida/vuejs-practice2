@@ -299,14 +299,16 @@ found 0 vulnerabilities
 
 ## bulmaの使い方
 
-ここを参照。
+これらを参照。
 
 <https://www.reddit.com/r/vuejs/comments/5q932p/setting_up_vuejs_with_bulma/>
 
-CSSファイルが見えているのでhtmlファイルで取り込んでもいいけど、
-せっかくwebpackで固めて使うのでbulma.sassを使うのが良さそう。
+<https://stackoverflow.com/questions/41966491/css-frameworks-in-vue-js>
 
-## bulma.scssの新規作成
+CSSファイルが見えているのでhtmlファイルで取り込んでもいいけど、
+せっかくwebpackで固めて使うのでbulma.sassを使い、ローダーで固めるのが良さそう。
+
+## 個別に指定する場合
 
 プロジェクト内に./src/bulma.scssを新規に作成する。
 中身は1行のみ。
@@ -316,9 +318,7 @@ CSSファイルが見えているのでhtmlファイルで取り込んでもい�
 @import '~bulma/bulma.sass'
 ```
 
-## main.jsからbulma.scssを呼び出す
-
-作成したbulma.scssファイルをsrc/main.jsから呼び出す。
+作成した./src/bulma.scssファイルを./src/main.jsから呼び出す。
 呼び出しはrequireでもimportでもどちらでもよい。
 
 ```js
@@ -327,6 +327,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+// ★
 // CSSフレームワークBulmaを利用
 // require("./bulma.scss");
 import "./bulma.scss";
@@ -343,9 +344,11 @@ new Vue({
 ## vue.config.jsで指定する方法
 
 ローダーオプションとして指定するのも簡単でいい。
-vue.config.jsは作成されていないので、新規で作成する。
+vue-cliではvue.config.jsを自動作成してくれないので新規で作成する。
 
 これをやっておけば、どこでもbulmaのCSSを利用できる。
+
+~記号はnode_modules/を指している。
 
 ```js
 module.exports = {
@@ -361,7 +364,7 @@ module.exports = {
 
 ## public/index.html
 
-langをjaにした程度。
+langをjaにする程度で、そのまま流用可能。
 
 ```html
 <!DOCTYPE html>

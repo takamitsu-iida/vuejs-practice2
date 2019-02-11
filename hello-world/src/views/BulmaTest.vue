@@ -1,12 +1,34 @@
 <template>
   <div>
-    <a class="button">Button</a>
 
-    <a class="button is-primary">Primary button</a>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
 
-    <a class="button is-large">Large button</a>
+          <h1 class="title">
+            Primary title
+          </h1>
 
-    <a class="button is-loading">Loading button</a>
+          <h2 class="subtitle">
+            Primary subtitle
+          </h2>
+
+
+        </div>
+      </div>
+    </section>
+
+
+
+    <div class="columns">
+      <div class="column">
+        <div style="background-color: #42afe3">
+          オート
+        </div>
+      </div>
+    </div>
+
+
 
   </div>
 </template>
