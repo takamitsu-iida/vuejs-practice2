@@ -9,7 +9,7 @@ import store from "./store";
 // import "./bulma.scss";
 
 // font-awesomeの使いたいCSSをimportで取り込む
-import "@fortawesome/fontawesome-free/css/all.css";
+// import "@fortawesome/fontawesome-free/css/all.css";
 
 Vue.config.productionTip = false;
 
