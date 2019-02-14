@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-
     <!-- ヘッダ部 -->
     <section class="hero is-info welcome is-small">
       <div class="hero-body">
@@ -17,12 +16,10 @@
         <table-sample></table-sample>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
-
 // 使いたいコンポーネントをインポートする
 // @ is an alias to /src
 import TableSample from "@/components/TableSample3.vue";
@@ -33,7 +30,6 @@ export default {
     TableSample
   }
 };
-
 </script>
 
 <style scoped>
@@ -48,7 +44,7 @@ export default {
   margin-bottom: 2rem;
 }
 .card-header-title {
-  color: #8F99A3;
+  color: #8f99a3;
   font-weight: 400;
 }
 .info-tiles {
@@ -56,14 +52,15 @@ export default {
 }
 .info-tiles .subtitle {
   font-weight: 300;
-  color: #8F99A3;
+  color: #8f99a3;
 }
 .hero.welcome.is-info {
-  background: #36D1DC;
-  background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
-  background: linear-gradient(to right, #5B86E5, #36D1DC);
+  background: #36d1dc;
+  background: -webkit-linear-gradient(to right, #5b86e5, #36d1dc);
+  background: linear-gradient(to right, #5b86e5, #36d1dc);
 }
-.hero.welcome .title, .hero.welcome .subtitle {
+.hero.welcome .title,
+.hero.welcome .subtitle {
   color: hsl(192, 17%, 99%);
 }
 .card .content {
@@ -72,7 +69,7 @@ export default {
 .card-footer-item {
   font-size: 14px;
   font-weight: 700;
-  color: #8F99A3;
+  color: #8f99a3;
 }
 .card-table .table {
   margin-bottom: 0;
@@ -82,4 +79,3 @@ export default {
   overflow-y: scroll;
 }
 </style>
-

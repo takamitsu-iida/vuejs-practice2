@@ -11,7 +11,6 @@ import store from "./store";
 // vue.config.jsでローダー指定しない場合は、ここで指定する
 // import "@fortawesome/fontawesome-free/css/all.css";
 
-
 Vue.config.productionTip = false;
 
 new Vue({
