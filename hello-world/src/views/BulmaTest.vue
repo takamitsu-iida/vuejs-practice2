@@ -1,48 +1,23 @@
 <template>
   <div class="container">
+
+    <!-- ヘッダ部 -->
+    <section class="hero is-info welcome is-small">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">Vue.js with Bulma CSS Framework</h1>
+          <h2 class="subtitle">vue-good-tableでテーブル表示を実験中</h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- コンテンツ -->
     <div class="columns">
       <div class="column is-12">
-
-        <!-- ヘッダ部 -->
-        <section class="hero is-info welcome is-small">
-          <div class="hero-body">
-            <div class="container">
-              <h1 class="title">Hello, Admin.</h1>
-              <h2 class="subtitle">I hope you are having a great day!</h2>
-            </div>
-          </div>
-        </section>
-
-        <!-- コンテンツ -->
-        <div class="columns">
-
-          <!-- 左側 -->
-          <div class="column is-4">
-            <div class="card">
-              <header class="card-header">
-                <p class="card-header-title">Inventory Search</p>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                  <div class="control has-icons-left has-icons-right">
-                    <input class="input is-large" type="text" placeholder>
-                    <span class="icon is-medium is-left">
-                      <i class="fa fa-search"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 右側 -->
-          <div class="column is-8">
-            <table-sample></table-sample>
-          </div>
-        </div>
-
+        <table-sample></table-sample>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -50,7 +25,7 @@
 
 // 使いたいコンポーネントをインポートする
 // @ is an alias to /src
-import TableSample from "@/components/TableSample.vue";
+import TableSample from "@/components/TableSample3.vue";
 
 export default {
   name: "BulmaTest",

@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 
-import Home from "./views/Home.vue";
-import Bulma from "./views/BulmaTest.vue";
+import Home from "@/views/Home.vue";
+import Bulma from "@/views/BulmaTest.vue";
 
 Vue.use(Router);
 

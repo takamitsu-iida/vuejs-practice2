@@ -11,8 +11,6 @@ import store from "./store";
 // vue.config.jsでローダー指定しない場合は、ここで指定する
 // import "@fortawesome/fontawesome-free/css/all.css";
 
-import { ClientTable } from "vue-tables-2";
-Vue.use(ClientTable);
 
 Vue.config.productionTip = false;
 

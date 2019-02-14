@@ -463,3 +463,33 @@ vue-table-2はテーブルを表示するコンポーネント。
 ```bash
 npm install --save vue-tables-2
 ```
+
+main.js
+
+```js
+import { ClientTable } from "vue-tables-2";
+Vue.use(ClientTable);
+```
+
+# vue-good-tableのインストール
+
+vue-good-tableはテーブルを表示するコンポーネント。
+
+<https://xaksis.github.io/vue-good-table/>
+
+インストールはいつも通りnpmで。
+
+```bash
+npm install --save vue-good-table
+```
+
+main.js
+
+```js
+import VueGoodTablePlugin from 'vue-good-table';
+
+// import the styles
+import 'vue-good-table/dist/vue-good-table.css'
+
+Vue.use(VueGoodTablePlugin);
+```

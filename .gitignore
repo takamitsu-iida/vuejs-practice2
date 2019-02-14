@@ -14,6 +14,9 @@ logs/
 # vs code
 *.code-workspace
 
+# data
+nodes.json
+
 # pickleで保存したファイルは無視
 *.pickle
 
