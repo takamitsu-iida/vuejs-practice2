@@ -1,5 +1,10 @@
 /* ~記号はnode_modules/を意味する  */
+
+/* navbarのハンバーガーメニューをできるだけ表示したくないので、デスクトップは769pxに変更 */
+$tablet: 568px;
+$desktop: 769px;
 @import '~bulma/bulma.sass';
+
 
 /* font-awesome */
 $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';

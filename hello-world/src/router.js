@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 
 import Home from "@/views/Home.vue";
-import Bulma from "@/views/BulmaTest.vue";
+import Table from "@/views/Table.vue";
 
 Vue.use(Router);
 
@@ -23,9 +23,9 @@ export default new Router({
         import(/* webpackChunkName: "about" */ "./views/About.vue")
     },
     {
-      path: "/bulma",
-      name: "bulma",
-      component: Bulma
+      path: "/table",
+      name: "table",
+      component: Table
     }
   ]
 });
